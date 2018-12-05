@@ -1,0 +1,4 @@
+﻿
+function equipList() {
+  toolbarActive('equipListTool');
+}
