@@ -9,47 +9,57 @@
 		</div>
 	</div>
 	<div class="page-content equipListContent">
+		<div>
 		<ul class="equipListContent-list row">
-			<li class="col-50">
+			<li class="col-50 active" menu-id="1">
 				<img src="/Image/Fsk_white/navigation.png"/>
 				<p>导轨</p>
 				<p>控制台</p>
 			</li>
-			<li class="col-50">
+			<li class="col-50" menu-id="2">
 				<img src="/Image/Fsk_white/monitor.png"/>
 				<p>监控</p>
 				<p>控制台</p>
 			</li>
-<!-- 			<li class="equipNoBackImg">
-				<img src="/Image/Fsk_white/navigation1.png"/>
-				<p>导轨</p>
-				<p>控制台</p>
-			</li>
-			<li class="equipNoBackImg">
-				<img src="/Image/Fsk_white/monitor1.png"/>
-				<p>监控</p>
-				<p>控制台</p>
-			</li> -->
 		</ul>
-        <section class="ControlGuide row">
-        	<div class="ControlGuideHeader col-100 row">
-				<a draggable="false" href="#" class="multipleIncrease col-33"><p>倍速增加</p></a>
-				<a draggable="false" href="#" class="multipleReduce col-33"><p>倍速减少</p></a>
-				<a draggable="false" href="#" class="focusZoomIn col-33"><p>焦点拉远</p></a>
-				<a draggable="false" href="#" class="focusPullFar col-33"><p>焦点拉近</p></a>
-				<a draggable="false" href="#" class="apertureOpen col-33"><p>光圈打开</p></a>
-				<a draggable="false" href="#" class="apertureClose col-33"><p>光圈关闭</p></a>
+        <section class="controlMonitor row displayNone" content-id="2">
+        	<div class="controlMonitorHeader col-100 row">
+				<a draggable="false" href="#" class="multipleIncrease col-33" id="multipleIncrease"><p>倍速增加</p></a>
+				<a draggable="false" href="#" class="multipleReduce col-33" id="multipleReduce"><p>倍速减少</p></a>
+				<a draggable="false" href="#" class="focusZoomIn col-33" id="focusZoomIn"><p>焦点拉远</p></a>
+				<a draggable="false" href="#" class="focusPullFar col-33" id="focusPullFar"><p>焦点拉近</p></a>
+				<a draggable="false" href="#" class="apertureOpen col-33" id="apertureOpen"><p>光圈打开</p></a>
+				<a draggable="false" href="#" class="apertureClose col-33" id="apertureClose"><p>光圈关闭</p></a>
             </div>
-			<div class="ControlGuideFooter col-100 row">
-				<a draggable="false" href="#" class="controlDirection_Left" ></a>
-				<a draggable="false" href="#" class="controlDirection_Top" ></a>
-				<a draggable="false" href="#" class="controlDirection_Right"></a>
-				<a draggable="false" href="#" class="controlDirection_Bottom"><p>云台控制</p></a>
-				<a draggable="false" href="#" class="controlDirection_Stop"></a>
+			<div class="controlMonitorFooter col-100 row">
+				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Top" id="controlDirection_Top"></a></div>
+				<div class="col-100">
+					<a draggable="false" href="#" class="controlDirection_Left" id="controlDirection_Left"></a>
+					<a draggable="false" href="#" class="controlDirection_Stop" id="controlDirection_Stop"></a>
+					<a draggable="false" href="#" class="controlDirection_Right" id="controlDirection_Right"></a>
+				</div>
+				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Bottom col-25" id="controlDirection_Bottom"></a></div>
 			</div>
         </section>
-        <section class="controlMonitor">
-        	
+        <section class="controlGuide row" content-id="1">
+         	<div class="controlGuideHeader col-100 row">
+				<a draggable="false" href="#" class="lowSpeedPattern col-33"><p>设置低速模式</p></a>
+				<a draggable="false" href="#" class="highSpeedPattern col-33"><p>设置高速模式</p></a>
+				<a draggable="false" href="#" class="accelerateArgs col-33"><p>加速参数设置</p></a>
+				<a draggable="false" href="#" class="highSpeedArgs col-33"><p>高速参数设置</p></a>
+				<a draggable="false" href="#" class="lowSpeedArgs col-33"><p>低速参数设置</p></a>
+				<a draggable="false" href="#" class="apertureClose col-33" style="visibility: hidden;"><p>光圈关闭</p></a>
+            </div>
+			<div class="controlGuideFooter col-100 row">
+				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Top" id=""></a></div>
+				<div class="col-100">
+					<a draggable="false" href="#" class="controlDirection_Left" ></a>
+					<a draggable="false" href="#" class="controlDirection_Stop"></a>
+					<a draggable="false" href="#" class="controlDirection_Right"></a>
+				</div>
+				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Bottom col-25"></a></div>
+			</div>       	
         </section>
+        </div>
 	</div>
 </div>
