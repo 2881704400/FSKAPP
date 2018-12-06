@@ -1,5 +1,4 @@
 ﻿ /*init*/
-
  /*@font-face {
  	font-family: PingFang SC Medium;
  	src: url('../../font/PINGFANG MEDIUM.TTF');
@@ -77,24 +76,44 @@
  		font-size: 16px;
  	}
  }
+ /* html.with-statusbar.device-android .framework7-root,
+ html.with-statusbar.md:not(.device-ios):not(.device-android) .framework7-root {
+ 	padding-top: 0;
+ }
+ 
+html.with-statusbar.device-ios .framework7-root,
+ html.with-statusbar.ios:not(.device-ios):not(.device-android) .framework7-root {
+ 	padding-top: 0;
+ }
+ 
+html.with-statusbar .statusbar {
+ 	display: none;
+ 	background: white;
+ }*/
+ 
+ html.with-statusbar.device-ios .framework7-root,
+ html.with-statusbar.ios:not(.device-ios):not(.device-android) .framework7-root {
+ 	padding-top: 20px;
+ }
  
  html.with-statusbar.device-android .framework7-root,
  html.with-statusbar.md:not(.device-ios):not(.device-android) .framework7-root {
  	padding-top: 0;
  }
  
- html.with-statusbar.device-ios .framework7-root,
- html.with-statusbar.ios:not(.device-ios):not(.device-android) .framework7-root {
- 	padding-top: 0;
+ html.device-android .statusbar,
+ html.md:not(.device-ios):not(.device-android) .statusbar {
+ 	height: 0px;
  }
  
- html.with-statusbar .statusbar {
- 	display: none;
- 	background: white;
+ html.device-ios .statusbar,
+ html.ios:not(.device-ios):not(.device-android) .statusbar {
+ 	height: 20px;
+ 	background: #000;
  }
  
- html.with-statusbar.device-ios .panel,
- html.with-statusbar.md:not(.device-ios) .panel {
+ html.with-statusbar.device-android .panel,
+ html.with-statusbar.md:not(.device-android) .panel {
  	top: 0px;
  	height: 100%;
  }
@@ -144,7 +163,7 @@
  		padding: 33% 5% 20% 5%!important;
  	}
  }
-
+ 
  .displayNone {
  	display: none!important;
  }
@@ -251,7 +270,8 @@
  .navbar-inner .title {
  	position: absolute;
  	left: 50%!important;
- 	transform: translateX(-50%);
+ 	top: 50% !important;
+ 	transform: translate(-50%,-50%);
  	margin: 0!important;
  	font-family: PingFang SC Medium;
  }
@@ -411,6 +431,7 @@
  	border-radius: 6px;
  	/*background: url(/Image/fsk/homeBg.png) no-repeat center center/100% 100%;*/
  }
+ 
  .homeMenuList li a {
  	color: #f7f7f7;
  	display: inline-block;
@@ -1604,167 +1625,217 @@
  }
  
  .equipListContent section {
-     height: 60%;
-     overflow: auto;
-     background: white;
-     padding-top: 4%;
+ 	height: 60%;
+ 	overflow: auto;
+ 	background: white;
+ 	padding-top: 4%;
  }
+ 
  .controlMonitor {}
+ 
  .controlMonitor a {
-     color: #000;
-     height: 2.8rem;
-     display: inline-block;
-     position: relative;
-     margin: auto;
+ 	color: #000;
+ 	height: 2.8rem;
+ 	display: inline-block;
+ 	position: relative;
+ 	margin: auto;
  }
+ 
  .controlMonitor a p {
-     font-size: 0.8rem;
-     width: 100%;
-     text-align: center;
-     position: absolute;
-     bottom: -2.5rem;
+ 	font-size: 0.8rem;
+ 	width: 100%;
+ 	text-align: center;
+ 	position: absolute;
+ 	bottom: -2.5rem;
  }
+ 
  .controlMonitorHeader a {
-     margin-bottom: 10%;
+ 	margin-bottom: 10%;
  }
+ 
  .controlMonitorHeader a:nth-child(1) {
-     background: url(/Image/phone/multiup.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multiup.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(1):active {
-     background: url(/Image/phone/multiup1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multiup1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(2) {
-     background: url(/Image/phone/multidown.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multidown.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(2):active {
-     background: url(/Image/phone/multidown1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multidown1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(3) {
-     background: url(/Image/phone/jiaonear.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaonear.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(3):active {
-     background: url(/Image/phone/jiaonear1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaonear1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(4) {
-     background: url(/Image/phone/jiaofar.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaofar.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(4):active {
-     background: url(/Image/phone/jiaofar1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaofar1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(5) {
-     background: url(/Image/phone/apertureOpen.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureOpen.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(5):active {
-     background: url(/Image/phone/apertureOpen1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureOpen1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(6) {
-     background: url(/Image/phone/apertureClose.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureClose.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorHeader a:nth-child(6):active {
-     background: url(/Image/phone/apertureClose1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureClose1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlMonitorFooter a {
-     width: 20%;
+ 	width: 20%;
  }
+ 
  .controlMonitorFooter>div {
-     text-align: center;
+ 	text-align: center;
  }
+ 
  .controlMonitorFooter>div:nth-child(1) {}
+ 
  .controlMonitorFooter>div:nth-child(2) {}
+ 
  .controlMonitorFooter>div:nth-child(3) {}
+ 
  .controlDirection_Top {
-     background: url(/Image/phone/direRight2.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight2.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Top:active {
-     background: url(/Image/phone/direRight22.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight22.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Left {
-     background: url(/Image/phone/direRight1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Left:active {
-     background: url(/Image/phone/direRight11.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight11.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Stop {
-     background: url(/Image/phone/stop.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/stop.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Stop:active {
-     background: url(/Image/phone/stop.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/stop.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Right {
-     background: url(/Image/phone/direRight3.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight3.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Right:active {
-     background: url(/Image/phone/direRight33.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight33.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Bottom {
-     background: url(/Image/phone/direRight4.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight4.png) no-repeat center center/auto 100%;
  }
+ 
  .controlDirection_Bottom:active {
-     background: url(/Image/phone/direRight44.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/direRight44.png) no-repeat center center/auto 100%;
  }
+ 
  .controlGuide a {
-     color: #000;
-     height: 2.8rem;
-     display: inline-block;
-     position: relative;
-     margin: auto;
+ 	color: #000;
+ 	height: 2.8rem;
+ 	display: inline-block;
+ 	position: relative;
+ 	margin: auto;
  }
+ 
  .controlGuide a p {
-     font-size: 0.8rem;
-     width: 100%;
-     text-align: center;
-     position: absolute;
-     bottom: -2.5rem;
+ 	font-size: 0.8rem;
+ 	width: 100%;
+ 	text-align: center;
+ 	position: absolute;
+ 	bottom: -2.5rem;
  }
+ 
  .controlGuideHeader a {
-     margin-bottom: 10%;
+ 	margin-bottom: 10%;
  }
+ 
  .lowSpeedPattern {
-     background: url(/Image/phone/multiup.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multiup.png) no-repeat center center/auto 100%;
  }
+ 
  .lowSpeedPattern:active {
-     background: url(/Image/phone/multiup1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multiup1.png) no-repeat center center/auto 100%;
  }
+ 
  .highSpeedPattern {
-     background: url(/Image/phone/multidown.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multidown.png) no-repeat center center/auto 100%;
  }
+ 
  .highSpeedPattern:active {
-     background: url(/Image/phone/multidown1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/multidown1.png) no-repeat center center/auto 100%;
  }
+ 
  .accelerateArgs {
-     background: url(/Image/phone/jiaonear.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaonear.png) no-repeat center center/auto 100%;
  }
+ 
  .accelerateArgs:active {
-     background: url(/Image/phone/jiaonear1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaonear1.png) no-repeat center center/auto 100%;
  }
+ 
  .highSpeedArgs {
-     background: url(/Image/phone/jiaofar.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaofar.png) no-repeat center center/auto 100%;
  }
+ 
  .highSpeedArgs:active {
-     background: url(/Image/phone/jiaofar1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/jiaofar1.png) no-repeat center center/auto 100%;
  }
+ 
  .lowSpeedArgs {
-     background: url(/Image/phone/apertureOpen.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureOpen.png) no-repeat center center/auto 100%;
  }
+ 
  .lowSpeedArgs:active {
-     background: url(/Image/phone/apertureOpen1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureOpen1.png) no-repeat center center/auto 100%;
  }
+ 
  .ControlGuideHeader a:nth-child(6) {
-     background: url(/Image/phone/apertureClose.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureClose.png) no-repeat center center/auto 100%;
  }
+ 
  .ControlGuideHeader a:nth-child(6):active {
-     background: url(/Image/phone/apertureClose1.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/phone/apertureClose1.png) no-repeat center center/auto 100%;
  }
+ 
  .controlGuideFooter a {
-     width: 20%;
+ 	width: 20%;
  }
+ 
  .controlGuideFooter>div {
-     text-align: center;
+ 	text-align: center;
  }
+ 
  .controlGuideFooter>div:nth-child(1) {}
+ 
  .controlGuideFooter>div:nth-child(2) {}
+ 
  .controlGuideFooter>div:nth-child(3) {}
-
  /*视频监控*/
  
  .left_video_menu {
@@ -2071,10 +2142,11 @@
  	border-top-left-radius: 15px;
  }
  
- .popup-voices .voice-container .pannel-chat-info .chart-content span{
+ .popup-voices .voice-container .pannel-chat-info .chart-content span {
  	display: flex;
  	align-items: center;
- 	justify-content: center;text-align:justify
+ 	justify-content: center;
+ 	text-align: justify
  }
  
  .stay-right {
@@ -2101,7 +2173,7 @@
  	color: #FFFFFF;
  	font-size: 0.75rem;
  	background: transparent;
- 	border: 1px solid rgba(255,255,255,1);
+ 	border: 1px solid rgba(255, 255, 255, 1);
  	border-radius: 5px;
  	text-align: center;
  	line-height: 30px;
@@ -2151,15 +2223,15 @@
  	opacity: 1;
  }
  
- .IndexIconAnimation1{
+ .IndexIconAnimation1 {
  	animation: IndexIconAnimation1 1.5s 0s both infinite;
  }
  
- .IndexIconAnimation2{
+ .IndexIconAnimation2 {
  	animation: IndexIconAnimation2 1.5s 0s both infinite;
  }
  
- .IndexIconAnimation3{
+ .IndexIconAnimation3 {
  	animation: IndexIconAnimation3 1.5s 0s both infinite;
  }
  
@@ -2216,19 +2288,27 @@
  	}
  }
  
-.homeHuanAnimation{
-    -webkit-animation-name: pulsate;
-	-webkit-animation-duration: 3s;
-	-webkit-animation-iteration-count: infinite;
-	
-	/*-moz-box-shadow: 0px 0px 30px  #3cdfdf;*/ 
-	
-}
-
-@-webkit-keyframes pulsate {
-0% {  -webkit-box-shadow: 0px 0px 0px #3E7CFB;}
-25% {  -webkit-box-shadow: 0px 0px 35px #3E7CFB;}
-50% {  -webkit-box-shadow: 0px 0px 0px #3E7CFB; }
-75% {  -webkit-box-shadow: 0px 0px 35px #3E7CFB;}
-100%{  -webkit-box-shadow: 0px 0px 0px #3E7CFB;}
-}
+ .homeHuanAnimation {
+ 	-webkit-animation-name: pulsate;
+ 	-webkit-animation-duration: 3s;
+ 	-webkit-animation-iteration-count: infinite;
+ 	/*-moz-box-shadow: 0px 0px 30px  #3cdfdf;*/
+ }
+ 
+ @-webkit-keyframes pulsate {
+ 	0% {
+ 		-webkit-box-shadow: 0px 0px 0px #3E7CFB;
+ 	}
+ 	25% {
+ 		-webkit-box-shadow: 0px 0px 35px #3E7CFB;
+ 	}
+ 	50% {
+ 		-webkit-box-shadow: 0px 0px 0px #3E7CFB;
+ 	}
+ 	75% {
+ 		-webkit-box-shadow: 0px 0px 35px #3E7CFB;
+ 	}
+ 	100% {
+ 		-webkit-box-shadow: 0px 0px 0px #3E7CFB;
+ 	}
+ }
