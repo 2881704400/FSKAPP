@@ -17,6 +17,12 @@ $(function() {
 			'	</div>' +
 			'</div>');
 	});
+	
+	$$('.popup-voices').on('popup:close', function(e, popup) {
+		$(".view-main").css({
+			filter: 'blur(0px)'
+		})
+	});
 
 	document.getElementById("videoContentBtnId").addEventListener('touchstart', onTouchStart);
 	document.getElementById("videoContentBtnId").addEventListener('touchend', onTouchEnd);
