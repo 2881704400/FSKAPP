@@ -19,7 +19,7 @@
 		<link rel="stylesheet" type="text/css" href="/fonts/iconfont.css" />
 		<!--声波动画-->
 		<link rel="stylesheet" type="text/css" href="/Styles/Plugin/waveAnimation.css" />
-		<link rel="stylesheet" type="text/css" href="/Styles/swiper-4.3.3.min.css"/>
+		<link rel="stylesheet" type="text/css" href="/Styles/swiper-4.3.3.min.css" />
 		<!--本页样式-->
 		<link rel="stylesheet" href="/Styles/Mobile/home.css">
 		<link rel="stylesheet" href="/Styles/Mobile/animate.min.css">
@@ -30,7 +30,7 @@
 		<div id="app">
 			<div class="statusbar"></div>
 			<!-- left panel -->
-			<div class="panel panel-left layout-dark panel-cover">
+			<div class="panel panel-left panel-cover">
 				<div class="list">
 					<ul>
 						<li>
@@ -104,24 +104,44 @@
 						<div class="mainContents">
 							<ul class="homeMenuList row no-gap">
 								<li class="col-50">
-									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/patrol.png" alt=""><p>巡逻模式</p></a>
-									<a href="#" class="displayNone"><img src="/Image/Fsk_white/patrol1.png" alt=""><p>巡逻模式</p></a>
+									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/patrol.png" alt="">
+										<p>巡逻模式</p>
+									</a>
+									<a href="#" class="displayNone"><img src="/Image/Fsk_white/patrol1.png" alt="">
+										<p>巡逻模式</p>
+									</a>
 								</li>
 								<li class="col-50">
-									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/demonstration.png" alt=""><p>演示模式</p></a>
-									<a href="#" class="displayNone"><img src="/Image/Fsk_white/demonstration1.png" alt=""><p>演示模式</p></a>
+									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/demonstration.png" alt="">
+										<p>演示模式</p>
+									</a>
+									<a href="#" class="displayNone"><img src="/Image/Fsk_white/demonstration1.png" alt="">
+										<p>演示模式</p>
+									</a>
 								</li>
 								<li class="col-50">
-									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/istributed.png" alt=""><p>分布式模式</p></a>
-									<a href="#" class="displayNone"><img src="/Image/Fsk_white/istributed1.png" alt=""><p>分布式模式</p></a>
+									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/istributed.png" alt="">
+										<p>分布式模式</p>
+									</a>
+									<a href="#" class="displayNone"><img src="/Image/Fsk_white/istributed1.png" alt="">
+										<p>分布式模式</p>
+									</a>
 								</li>
 								<li class="col-50">
-									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/island.png" alt=""><p>孤岛模式</p></a>
-									<a href="#" class="displayNone"><img src="/Image/Fsk_white/island1.png" alt=""><p>孤岛模式</p></a>
+									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/island.png" alt="">
+										<p>孤岛模式</p>
+									</a>
+									<a href="#" class="displayNone"><img src="/Image/Fsk_white/island1.png" alt="">
+										<p>孤岛模式</p>
+									</a>
 								</li>
 								<li class="col-50">
-									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/sequence.png" alt=""><p>顺序模式</p></a>
-									<a href="#" class="displayNone"><img src="/Image/Fsk_white/sequence1.png" alt=""><p>顺序模式</p></a>
+									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/sequence.png" alt="">
+										<p>顺序模式</p>
+									</a>
+									<a href="#" class="displayNone"><img src="/Image/Fsk_white/sequence1.png" alt="">
+										<p>顺序模式</p>
+									</a>
 								</li>
 							</ul>
 						</div>
@@ -141,11 +161,11 @@
 							<img src="/Image/fsk/equip1.png" alt="" class="displayNone">
 							<span>设备</span>
 						</a>
-						<a href="#" class="link col-20" id="voiceBtn" style="width: 20%;">
+						<a href="#" class="link col-20 popup-open" data-popup=".popup-voices" id="voiceBtn">
 							<div class="video-content-btn">
-								<div><img src="../../Image/Fsk_white/video.png"/></div>
+								<div><img src="../../Image/Fsk_white/video.png" /></div>
 							</div>
-							
+
 						</a>
 						<a href="/equipList/" class="link animation-no col-20" id="equipListTool">
 							<img src="/Image/fsk/video.png" alt="">
@@ -170,6 +190,50 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="popup popup-voices">
+					<div class="voice-header">
+						<div class="voice-header-back popup-close"> <i class="iconfont icon-back"></i> </div>
+						<span>语音控制</span>
+					</div>
+					<div class="voice-container">
+						<div class="pannel-chat-info">
+							<div class="chart-content chart-content-old">
+								<span>请告诉我，您想要进行的操作</span>
+							</div>
+						</div><!--
+						<div class="pannel-chat-info">
+							<div class="chart-content stay-right">
+								云台 旋转 140度
+							</div>
+						</div>
+						<div class="pannel-chat-info">
+							<div class="chart-content chart-content-old">
+								好的，旋转云台中..
+							</div>
+						</div>
+						<div class="pannel-chat-info">
+							<div class="chart-content">
+								云台旋转完成
+							</div>
+						</div>-->
+					</div>
+					<div class="voice-arrow-cancel">
+						取消指令
+					</div>
+					<div class="voice-arrow-box">
+						<div class="voice-arrow-ani IndexIconAnimation3"></div>
+						<div class="voice-arrow-ani IndexIconAnimation2"></div>
+						<div class="voice-arrow-ani IndexIconAnimation1"></div>
+					</div>
+					<div class="voice-arrow-dialog">
+						长按说话..
+					</div>
+					<div class="video-content-btn" id="videoContentBtnId" style="background-color: transparent;">
+						<div class="homeHuanAnimation"><img src="../../Image/Fsk_white/video.png" style="height: 50%;" /></div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 		<!-- 框架js-->

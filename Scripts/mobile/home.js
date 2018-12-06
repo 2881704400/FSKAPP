@@ -23,6 +23,11 @@ function onHomePage() {
 		elemHieght -= 45;
 	}
 //	$(".view").height(elemHieght + "px");
+
+	$$('#voiceBtn').on('click', function () {
+//	  myApp.popup('.popup-services');
+	});
+
 }
 //界面尺寸变化事件
 function onResizeCustomized() {
