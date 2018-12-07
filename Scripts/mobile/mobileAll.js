@@ -615,22 +615,28 @@ function toolbarActive(ids) {
     $(".toolbar-inner").find("a").each(function() {
         if ($(this).hasClass("active")) {
             var cls = $(this).find("i").attr("cls");
-            $(this).find("i").removeClass("icon-" + cls + "_a");
-            $(this).find("i").addClass("icon-" + cls + "_b");
+//          $(this).find("i").removeClass("icon-" + cls + "_a");
+//          $(this).find("i").addClass("icon-" + cls + "_b");
             $(this).removeClass("active");
             $(this).find("span").css({
 	        	color: "#333"
-	        })
+	        });
+            $(this).find("i").css({
+	        	color: "#333"
+	        });
         }
     });
     if (ids != '') {
         $("#" + ids).addClass("active");
         var cls = $("#" + ids).find("i").attr("cls");
-        $("#" + ids).find("i").removeClass("icon-" + cls + "_b");
-        $("#" + ids).find("i").addClass("icon-" + cls + "_a");
+//      $("#" + ids).find("i").removeClass("icon-" + cls + "_b");
+//      $("#" + ids).find("i").addClass("icon-" + cls + "_a");
         $("#" + ids).find("span").css({
         	color: "#3E7CFB"
-        })
+        });
+        $("#" + ids).find("i").css({
+        	color: "#3E7CFB"
+        });
     }
 }
 //注销事件

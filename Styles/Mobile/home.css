@@ -190,7 +190,7 @@ html.with-statusbar .statusbar {
  /*左侧panel*/
  
  .panel>div.list>ul {
- 	background: #FFFFFF;
+ 	background: #F2F3F5;
  }
  
  .panel>div.list>ul:after,
@@ -270,8 +270,7 @@ html.with-statusbar .statusbar {
  .navbar-inner .title {
  	position: absolute;
  	left: 50%!important;
- 	top: 50% !important;
- 	transform: translate(-50%,-50%);
+ 	transform: translateX(-50%);
  	margin: 0!important;
  	font-family: PingFang SC Medium;
  }
@@ -309,6 +308,7 @@ html.with-statusbar .statusbar {
  
  .tabbar a i {
  	font-size: 24px;
+ 	color: #333;
  	display: block;
  }
  
