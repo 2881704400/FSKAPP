@@ -44,3 +44,23 @@ System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.Da
    在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
 -------------------------------------
 
+----------2018/12/7 9:05:50----------
+System.ArgumentException: 不支持 URI 格式。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.IO.Path.GetFullPath(String path)
+   在 System.Diagnostics.FileVersionInfo.GetFullPathWithAssert(String fileName)
+   在 System.Diagnostics.FileVersionInfo.GetVersionInfo(String fileName)
+   在 GWService.Net.Data.Methods.GetDLLVersion(String fromPath) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWService.Net\Data\Methods.cs:行号 729
+-------------------------------------
+
+----------2018/12/7 9:05:56----------
+System.ArgumentException: 不支持 URI 格式。
+   在 System.IO.Path.LegacyNormalizePath(String path, Boolean fullCheck, Int32 maxPathLength, Boolean expandShortPaths)
+   在 System.IO.Path.GetFullPathInternal(String path)
+   在 System.IO.Path.GetFullPath(String path)
+   在 System.Diagnostics.FileVersionInfo.GetFullPathWithAssert(String fileName)
+   在 System.Diagnostics.FileVersionInfo.GetVersionInfo(String fileName)
+   在 GWService.Net.Data.Methods.GetDLLVersion(String fromPath) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWService.Net\Data\Methods.cs:行号 729
+-------------------------------------
+

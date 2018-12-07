@@ -530,7 +530,7 @@ html.with-statusbar .statusbar {
  }
  
  .agvCoordinate label {
- 	color: #00C9FF;
+ 	color: #459EF1;
  }
  
  .agvFooter {
@@ -1470,7 +1470,7 @@ html.with-statusbar .statusbar {
  	height: 100%;
  }
  
- .displayNone {
+ .displayNoneN {
  	display: none;
  }
  
