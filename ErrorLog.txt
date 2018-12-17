@@ -64,3 +64,61 @@ System.ArgumentException: 不支持 URI 格式。
    在 GWService.Net.Data.Methods.GetDLLVersion(String fromPath) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWService.Net\Data\Methods.cs:行号 729
 -------------------------------------
 
+----------2018/12/12 15:24:17----------
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 AlarmCenter.DataCenter.DataCenter.RunProxy(String csIP, String csPort, String Name, String PWD, ClientType CT, Boolean bLogin)
+   在 GWService.Net.Data.Methods.RunProxy(String csIP, String csPort, String Name, String PWD) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWService.Net\Data\Methods.cs:行号 40
+   在 GWService.Net.ClassLib.ConnectService(String user_name) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWService.Net\ClassLib.cs:行号 122
+-------------------------------------
+
+----------2018/12/12 15:24:17----------
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 GWService.Net.ClassLib.GetDataTableFromSQL(String sql, String userName) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWService.Net\ClassLib.cs:行号 161
+-------------------------------------
+
+----------2018/12/12 15:24:34----------
+AlarmCenter服务未启动或服务运行出错，若服务出错请查看/AlarmCenter/XLog.txt错误日志
+-------------------------------------
+
+----------2018/12/12 15:24:34----------
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 GWService.Net.ClassLib.ExecuteSQL(String sql, String userName) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWService.Net\ClassLib.cs:行号 182
+-------------------------------------
+
+----------2018/12/12 15:24:40----------
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 AlarmCenter.DataCenter.DataCenter.RunProxy(String csIP, String csPort, String Name, String PWD, ClientType CT, Boolean bLogin)
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\Methods.cs:行号 55
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
+----------2018/12/14 13:27:19----------
+System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.DataCenter.RunProxy(System.String, System.String, System.String, System.String, AlarmCenter.DataCenter.ClientType, Boolean)'.
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD)
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
+----------2018/12/14 13:27:56----------
+System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.DataCenter.RunProxy(System.String, System.String, System.String, System.String, AlarmCenter.DataCenter.ClientType, Boolean)'.
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD)
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
+----------2018/12/17 9:54:39----------
+System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.DataCenter.RunProxy(System.String, System.String, System.String, System.String, AlarmCenter.DataCenter.ClientType, Boolean)'.
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD)
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
+----------2018/12/17 10:06:38----------
+System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.DataCenter.RunProxy(System.String, System.String, System.String, System.String, AlarmCenter.DataCenter.ClientType, Boolean)'.
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD)
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 C:\Users\GW-007\Desktop\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
+----------2018/12/17 16:05:24----------
+System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.DataCenter.RunProxy(System.String, System.String, System.String, AlarmCenter.DataCenter.ClientType, Boolean)'.
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD)
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 D:\ganweisoft\AlarmCenterV90\web\branches\r89_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
