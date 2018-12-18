@@ -122,3 +122,41 @@ System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.Da
    在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 D:\ganweisoft\AlarmCenterV90\web\branches\r89_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
 -------------------------------------
 
+----------2018/12/18 9:00:27----------
+System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.DataCenter.RunProxy(System.String, System.String, System.String, AlarmCenter.DataCenter.ClientType, Boolean)'.
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD)
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 D:\ganweisoft\AlarmCenterV90\web\branches\r89_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
+----------2018/12/18 9:01:34----------
+System.MissingMethodException: Method not found: 'Void AlarmCenter.DataCenter.DataCenter.RunProxy(System.String, System.String, System.String, AlarmCenter.DataCenter.ClientType, Boolean)'.
+   在 GWServiceAPI.Net.LibClass.Methods.RunProxy(String csIP, String csPort, String Name, String PWD)
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 D:\ganweisoft\AlarmCenterV90\web\branches\r89_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 147
+-------------------------------------
+
+----------2018/12/18 10:54:43----------
+System.ServiceModel.CommunicationException: 写入管道时出错: 管道正在被关闭。 (232, 0xe8)。 ---> System.IO.PipeException: 写入管道时出错: 管道正在被关闭。 (232, 0xe8)。
+   在 System.ServiceModel.Channels.PipeConnection.StartSyncWrite(Byte[] buffer, Int32 offset, Int32 size, Object& holder)
+   在 System.ServiceModel.Channels.PipeConnection.StartSyncWrite(Byte[] buffer, Int32 offset, Int32 size)
+   在 System.ServiceModel.Channels.PipeConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   --- 内部异常堆栈跟踪的结尾 ---
+
+Server stack trace: 
+   在 System.ServiceModel.Channels.PipeConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   在 System.ServiceModel.Channels.BufferedConnection.WriteNow(Byte[] buffer, Int32 offset, Int32 size, TimeSpan timeout, BufferManager bufferManager)
+   在 System.ServiceModel.Channels.BufferedConnection.Write(Byte[] buffer, Int32 offset, Int32 size, Boolean immediate, TimeSpan timeout, BufferManager bufferManager)
+   在 System.ServiceModel.Channels.FramingDuplexSessionChannel.OnSendCore(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.TransportDuplexSessionChannel.OnSend(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.OutputChannel.Send(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Dispatcher.DuplexChannelBinder.Request(Message message, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   在 System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   在 System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   在 System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   在 AlarmCenterWcfServiceLibrary.IAlarmCenterService.GetUserName2SF()
+   在 GWServiceAPI.Net.LibClass.ServerLib.ConnectService(String user_name) 位置 D:\ganweisoft\AlarmCenterV90\web\branches\r90_fix\AlarmCenterWeb\GWServiceAPI.Net\LibClass\ServerLib.cs:行号 151
+-------------------------------------
+

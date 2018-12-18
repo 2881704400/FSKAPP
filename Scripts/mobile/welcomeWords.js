@@ -59,16 +59,16 @@ function welcomeWords() {
 					} else if(result.CanvasLeft == "right") {
 						$("#alignControlId i").eq(2).addClass("control-active-color");
 					}
+					$(".welcomeInput").css("textAlign", result.CanvasLeft);
 					//上下对齐初始化
-					$("#thickControlId i").each(function(i) {
-						if(i < 2) {
-							$(this).removeClass("control-active-color");
-						}
-					});
 					if(result.CanvasTop == "0") {
 						$("#alignControlId i").eq(3).removeClass("control-active-color");
-					} else if(result.CanvasTop == "1") {
+						$(".welcomeInput").css("padding", 0);
+					} else if(result.CanvasTop == "50") {
 						$("#alignControlId i").eq(3).addClass("control-active-color");
+						var textAreaHeight = $(".welcomeInput").height() / 4;
+						strAlignItem = "" + textAreaHeight + "px 0";
+						$(".welcomeInput").css("padding", strAlignItem);
 					}
 					//字体类别
 					$(".welcomeInput").css("fontFamily", result.FontFamily);
