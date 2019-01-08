@@ -4,62 +4,96 @@
 			<div class="left"></div>
 			<div class="center sliding title">监控中心</div>
 			<div class="right">
-				<a href="#" class="link icon-only panel-open"><i class="iconfont icon-caidan"></i></a>
+				
+			</div>
+			<div class="subnavbar" style="background: #fff;">
+				<div class="subnavbar-inner" style="width: 70%;margin: auto;">
+					<div class="segmented segmented-raised">
+						<a class="button tab-link tab-link-active" href="#tab1" style="border-radius: 3px 0 0 3px;height: 29px;;line-height: 29px;">导轨控制台</a>
+						<a class="button tab-link" href="#tab2" style="border-radius: 0 3px 3px 0;height: 29px;;line-height: 29px;">监控控制台</a>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
-	<div class="page-content equipListContent">
-		<div>
-		<ul class="equipListContent-list row">
-			<li class="col-50 active" menu-id="1">
-				<img src="/Image/Fsk_white/navigation.png"/>
-				<p>导轨</p>
-				<p>控制台</p>
-			</li>
-			<li class="col-50" menu-id="2">
-				<img src="/Image/Fsk_white/monitor.png"/>
-				<p>监控</p>
-				<p>控制台</p>
-			</li>
-		</ul>
-        <section class="controlMonitor row displayNone" content-id="2">
-        	<div class="controlMonitorHeader col-100 row">
-				<a draggable="false" href="#" class="multipleIncrease col-33" id="multipleIncrease"><p>倍速增加</p></a>
-				<a draggable="false" href="#" class="multipleReduce col-33" id="multipleReduce"><p>倍速减少</p></a>
-				<a draggable="false" href="#" class="focusZoomIn col-33" id="focusZoomIn"><p>焦点拉远</p></a>
-				<a draggable="false" href="#" class="focusPullFar col-33" id="focusPullFar"><p>焦点拉近</p></a>
-				<a draggable="false" href="#" class="apertureOpen col-33" id="apertureOpen"><p>光圈打开</p></a>
-				<a draggable="false" href="#" class="apertureClose col-33" id="apertureClose"><p>光圈关闭</p></a>
-            </div>
-			<div class="controlMonitorFooter col-100 row">
-				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Top" id="controlDirection_Top"></a></div>
-				<div class="col-100">
-					<a draggable="false" href="#" class="controlDirection_Left" id="controlDirection_Left"></a>
-					<a draggable="false" href="#" class="controlDirection_Stop" id="controlDirection_Stop"></a>
-					<a draggable="false" href="#" class="controlDirection_Right" id="controlDirection_Right"></a>
+	<div class="page-content hide-navbar-on-scroll equipListContent" style="padding-top: 86px !important;">
+		<div class="tabs equipListGuide">
+			<div class="main-guide-panel tab tab-active" id="tab1">
+				<div class="guide-big-box" id="guideControlModelId">
+					<div class="guide-box-desc">当前导轨模式</div>
+					<div class="guide-box-value"><span>高速模式</span><i class="iconfont icon-genggai"></i></div>
 				</div>
-				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Bottom col-25" id="controlDirection_Bottom"></a></div>
+				<div class="guide-small-box" id="guideControlSpeedId">
+					<div class="guide-box-desc">加速参数设置</div>
+					<div class="guide-box-value"><span>4</span><i class="iconfont icon-genggai"></i></div>
+				</div>
+				<div class="guide-small-box" id="guideControlValueId">
+					<div class="guide-box-desc">高速参数设置</div>
+					<div class="guide-box-value"><span>320</span><i class="iconfont icon-genggai"></i></div>
+				</div>
+				<div class="guide-control-box" id="guideControlId">
+					<div class="guide-control-stop">
+						<i class="iconfont icon-fangxiangjian left-top-controlstep" id="guideControlStepId1"></i>
+						<i class="iconfont icon-fangxiangjian left-bottom-controlstep" id="guideControlStepId2"></i>
+						<i class="iconfont icon-fangxiangjian right-top-controlstep" id="guideControlStepId3"></i>
+						<i class="iconfont icon-fangxiangjian right-bottom-controlstep" id="guideControlStepId4"></i>
+					</div>
+					<div class="guide-control-step">
+						<i class="iconfont icon-zanting"></i>
+					</div>
+				</div>
 			</div>
-        </section>
-        <section class="controlGuide row" content-id="1">
-         	<div class="controlGuideHeader col-100 row">
-				<a draggable="false" href="#" class="lowSpeedPattern col-33"><p>设置低速模式</p></a>
-				<a draggable="false" href="#" class="highSpeedPattern col-33"><p>设置高速模式</p></a>
-				<a draggable="false" href="#" class="accelerateArgs col-33"><p>加速参数设置</p></a>
-				<a draggable="false" href="#" class="highSpeedArgs col-33"><p>高速参数设置</p></a>
-				<a draggable="false" href="#" class="lowSpeedArgs col-33"><p>低速参数设置</p></a>
-				<a draggable="false" href="#" class="apertureClose col-33" style="visibility: hidden;"><p>光圈关闭</p></a>
-            </div>
-			<div class="controlGuideFooter col-100 row">
-				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Top" id=""></a></div>
-				<div class="col-100">
-					<a draggable="false" href="#" class="controlDirection_Left" ></a>
-					<a draggable="false" href="#" class="controlDirection_Stop"></a>
-					<a draggable="false" href="#" class="controlDirection_Right"></a>
+			<div class="main-guide-panel tab" id="tab2">
+				<div class="guide-control-panel">
+					<div class="guide-control-panel-box" id="monitorControlSpeedId">
+						<div class="guide-control-top-box" id="monitorControlSpeedTopId">
+							<i class="iconfont icon-fangxiangjian"></i>
+						</div>
+						<div class="guide-control-center-box">
+							<span>倍速</span>
+							<font>调整</font>
+						</div>
+						<div class="guide-control-bottom-box" id="monitorControlSpeedBottomId">
+							<i class="iconfont icon-fangxiangjian"></i>
+						</div>
+					</div>
+					<div class="guide-control-panel-box" id="monitorControlApertureId">
+						<div class="guide-control-top-box" id="monitorControlApertureTopId">
+							<span>ON</span>
+						</div>
+						<div class="guide-control-center-box">
+							<span>关闭</span>
+							<label>光圈状态</label>
+						</div>
+						<div class="guide-control-bottom-box" id="monitorControlApertureBottomId">
+							<span>OFF</span>
+						</div>
+					</div>
+					<div class="guide-control-panel-box" id="monitorControlFocusId">
+						<div class="guide-control-top-box" id="monitorControlFocusTopId">
+							<i class="iconfont icon-fangxiangjian"></i>
+						</div>
+						<div class="guide-control-center-box">
+							<span>焦点</span>
+							<font>调整</font>
+						</div>
+						<div class="guide-control-bottom-box" id="monitorControlFocusBottomId">
+							<i class="iconfont icon-fangxiangjian"></i>
+						</div>
+					</div>
 				</div>
-				<div class="col-100"><a draggable="false" href="#" class="controlDirection_Bottom col-25"></a></div>
-			</div>       	
-        </section>
-        </div>
+				<div class="guide-control-box" id="monitorControlId">
+					<div class="guide-control-stop">
+						<i class="iconfont icon-fangxiangjian left-top-controlstep" id="monitorControlStepId1"></i>
+						<i class="iconfont icon-fangxiangjian left-bottom-controlstep" id="monitorControlStepId2"></i>
+						<i class="iconfont icon-fangxiangjian right-top-controlstep" id="monitorControlStepId3"></i>
+						<i class="iconfont icon-fangxiangjian right-bottom-controlstep" id="monitorControlStepId4"></i>
+					</div>
+					<div class="guide-control-step">
+						
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
