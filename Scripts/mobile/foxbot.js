@@ -1,88 +1,76 @@
-﻿
+﻿var chatList;
 function foxbot() {
-  //foxbotAjaxData(2001);
-  
-  var mySwiper = new Swiper('#swiperContainerId2', {
-		autoplay: false, //可选选项，自动滑动
-		slidesPerView: 5,
-		//			loop:true,
-		on: {
-			click: function(dom) {
-				var id = mySwiper.clickedIndex;
-				$(".swiper-slide").eq(id).addClass("swiperSlideBackImg").siblings().removeClass("swiperSlideBackImg");
-//				getFloorData(mySwiper.clickedSlide.id)
+	//获取父页面参数
+	var chatObject = myApp.views.main.history,
+		urlLength = chatObject.length - 1;
+	var chatValue = chatObject[urlLength].split("?")[1].split("&");
+	var chatTitleName = chatValue[0];
+	chatList = chatValue[1];
+	$("#foxbotCenterTitleID").html(chatTitleName);
+	initConnectService();
+}
+
+//连接服务器
+function initConnectService() {
+	var checkConnectNum = 0;
+	$.ajax({
+		type: "POST",
+		url: "/GWService.asmx/ConnectService",
+		timeout: 5000,
+		data: {
+			user_name: 'admin',
+		},
+		success: function(data) {
+			var datas = $(data).find("string").text();
+			if(datas != null && datas != "" && datas != "false") {
+				getRealTimeDataByID_Foxbot();
+				//setInterval(getRealTimeDataByID_Foxbot, 3000);
+			}
+		},
+		complete: function(XMLHttpRequest, status) {
+			if(status == 'timeout') {
+				if(checkConnectNum < 3) {
+					checkConnectNum++;
+					initConnectService();
+				} else {
+					myApp.dialog.alert("数据服务暂未启动，请稍后再试...");
+				}
+
 			}
 		}
 	});
-
-  /*setInterval(function(){
-    $(".foxbot_StatusState").html(Math.round(50*Math.random())+" mm/s");
-
-    $(".foxbot_RunState").html(Math.round(3000*Math.random()));
-    $(".foxbot_PauseState").html(Math.round(3000*Math.random()));
-
-    $(".foxbot_Speed").html(Math.round(50*Math.random())+" mm/s");
-
-    $(".foxbot_Joint1").html(Math.round(100*Math.random())+" deg");
-    $(".foxbot_Joint2").html(Math.round(100*Math.random())+" deg");
-    // $(".foxbot_Joint3").html(Math.round(100*Math.random())+" deg");
-    // $(".foxbot_Joint4").html(Math.round(100*Math.random())+" deg");
-    $(".foxbot_Joint5").html(Math.round(100*Math.random())+" deg");
-
-    $(".foxbot_x").html(Math.round(80*Math.random())+" mm");
-    // $(".foxbot_y").html(Math.round(-100*Math.random())+" mm");
-    $(".foxbot_z").html(Math.round(70*Math.random())+" mm");
-
-        $(".foxbot_rx").html(Math.round(-100*Math.random())+" mm");
-    $(".foxbot_ry").html(Math.round(-100*Math.random())+" mm");
-    // $(".foxbot_rz").html(Math.round(-100*Math.random())+" mm");
-  },3000);*/
-
-	$(".navbar").addClass("noShadow");
 }
 
-function foxbotAjaxData(equip_no_0){
+function getRealTimeDataByID_Foxbot() {
+	$.ajax({
+		type: "POST",
+		url: "/GWService.asmx/GetRealTimeData",
+		timeout: 5000,
+		data: {
+			equip_no: chatList,
+			table_name: "ycp"
+		},
+		success: function(data) {
+			$(data).find('string').each(function() {
+				var result = JSON.parse($(this).text());
+				if(result&&result[0].m_YCValue != "***") {
+					for(var i = 0; i < result.length; i++) {
+						if(result[i].m_iYCNo == 17) {
+							$(".foxbot_RunState").parent().find('span').html(result[i].m_YCValue);
+						}
+						if(result[i].m_iYCNo == 20) {
+							$(".foxbot_StatusState").parent().find('span').html(result[i].m_YCValue);
+						}
+						if(result[i].m_iYCNo == 19) {
+							$(".foxbot_PauseState").parent().find('span').html(result[i].m_YCValue);
+						}
+						if(result[i].m_iYCNo == 18) {
+							$(".foxbot_Speed").parent().find('span').html(result[i].m_YCValue);
+						}
+					}
+				}
+			});
 
-	var jsonData = {
-	    "url": "/api/real/equip_item_state",
-	    "data":{ equip_no: equip_no_0},
-	    "success": _success,
-	    "error": _error,
-	    "complete": _complete
-	};
-	jQuery.axpost(jsonData);
-    function _success(dt) {
-        var result = dt.HttpData.data.YCItemDict;
-        for (var ycp in result) {
-           handleString(result[ycp].m_iYCNo,result[ycp].m_YCValue); //console.log(result[ycp]);//输出所有测点号的模拟量数据
-        }
-	}
-	function _error(e) {
-       console.log(e);
-	}
-	function _complete(XMLHttpRequest, status) {
-
-	}
-	function handleString(ycp_no,value){
-       switch(ycp_no.toString()){//console.log(value+","+ycp_no);
-       	 case "2": $(".foxbot_RunState").html(value);break;
-       	 case "3": $(".foxbot_Speed").html(value);break;
-       	 case "4": $(".foxbot_PauseState").html(value);break;
-       	 case "5": $(".foxbot_StatusState").html(value);break;
-       	 case "6": $(".foxbot_Joint1").html(value);break;
-       	 case "7": $(".foxbot_Joint2").html(value);break;
-       	 case "8": $(".foxbot_Joint3").html(value);break;
-       	 case "9": $(".foxbot_Joint4").html(value);break;
-       	 case "10": $(".foxbot_Joint5").html(value);break;
-       	 case "11": $(".foxbot_x").html(value);break;
-       	 case "12": $(".foxbot_y").html(value);break;
-       	 case "13": $(".foxbot_z").html(value);break;
-       	 case "14": $(".foxbot_rx").html(value);break;
-       	 case "15": $(".foxbot_ry").html(value);break;
-       	 case "16": $(".foxbot_rz").html(value);break;
-       	 case "17": $(".foxbot_fig").html(value);break;
-       	 case "18": $(".foxbot_work").html(value);break;
-       	 case "19": $(".foxbot_tool").html(value);break;
-       }
-	}
+		}
+	});
 }

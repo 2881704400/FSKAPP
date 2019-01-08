@@ -40,26 +40,33 @@ var myApp = new Framework7({
 			path: '/equipList/',
 			url: 'equipList.html',
 		}, {
-			path: '/equipList2/',
-			url: 'equipList3.html',
-		}, {
 			path: '/welcomeWords/',
 			url: 'welcomeWords.html',
+		}, {
+			path: '/atm/',
+			url: 'atm.html',
 		}, {
 			path: '/agv/',
 			url: 'agv.html',
 		}, {
+			path: '/agv_dg/',
+			url: 'agv_dg.html',
+		}, {
 			path: '/feeder/',
 			url: 'feeder.html',
 		}, {
+			path: '/fanuc/',
+			url: 'fanuc.html',
+		}, {
 			path: '/foxbot/',
 			url: 'foxbot.html',
-		},
-		{
+		}, {
+			path: '/foxnum/',
+			url: 'foxnum.html',
+		}, {
 			path: '/RealTime/',
 			url: 'RealTime.html',
-		},
-		{
+		}, {
 			path: '/RealTimeList/',
 			content: '123',
 		}, {
@@ -134,7 +141,6 @@ function JQajaxo(_type, _url, _asycn, _data, _success) {
 		complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
 			if(status == 'timeout') { //超时,status还有success,error等值的情况
 				ajaxs.abort();
-				console.log("超时");
 				// myApp.hideIndicator();
 				myApp.dialog.create({
 					title: "系统提示",
@@ -171,7 +177,6 @@ function ajaxService(_type, _url, _asycn, _data, _success, _error) {
 		complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
 			if(status == 'timeout') { //超时,status还有success,error等值的情况
 				ajaxs.abort();
-				console.log("超时");
 				// myApp.hideIndicator();
 				myApp.dialog.create({
 					title: "系统提示",
@@ -197,7 +202,6 @@ function InitEnsure() {
 			var analyze = $(dt).children("string").text();
 			if(analyze != "" || analyze != "false") {
 				$("#homeContents").show();
-				console.log("连接成功！");
 				$.ajax({
 					type: "post",
 					url: service + "/UserPermissions",
@@ -213,7 +217,6 @@ function InitEnsure() {
 		complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
 			if(status == 'timeout') { //超时,status还有success,error等值的情况
 				ajaxs.abort();
-				console.log("超时");
 				// myApp.hideIndicator();
 				myApp.dialog.create({
 					title: "系统提示",
@@ -234,7 +237,6 @@ function initEnsureChonglian(fun) {
 	function _success(data) {
 		var analyze = $(data).children("string").text();
 		if(analyze != "" || analyze != "false") {
-			console.log("重连成功！");
 			if(fun != null) {
 				fun();
 			}
@@ -568,7 +570,7 @@ function BackPushID(data) {
 		},
 		success: function(dt) {
 			if(dt.HttpStatus == 200 && dt.HttpData.code == 200) {
-				console.log('添加推送成功');
+				myApp.dialog.alert('添加推送成功');
 			} else {
 				alert('错误码：' + dt.HttpData.code + '\n错误信息：' + dt.HttpData.message);
 			}
@@ -805,6 +807,45 @@ $$(document).on("page:beforein", ".page[data-page='feeder']", function(e) {
 		}
 	} else {
 		initPageJS('feeder', '');
+	}
+});
+//foxnum
+$$(document).on("page:beforein", ".page[data-page='foxnum']", function(e) {
+	if($(this).hasClass("page-on-left")) {
+		var ids = $(this).next().attr("id");
+		if(ids == "home") {
+			toolbarActive('homeTool');
+		} else {
+			initPageJS(ids, '');
+		}
+	} else {
+		initPageJS('foxnum', '');
+	}
+});
+//fanuc
+$$(document).on("page:beforein", ".page[data-page='fanuc']", function(e) {
+	if($(this).hasClass("page-on-left")) {
+		var ids = $(this).next().attr("id");
+		if(ids == "home") {
+			toolbarActive('homeTool');
+		} else {
+			initPageJS(ids, '');
+		}
+	} else {
+		initPageJS('fanuc', '');
+	}
+});
+//agv_dg
+$$(document).on("page:beforein", ".page[data-page='agv_dg']", function(e) {
+	if($(this).hasClass("page-on-left")) {
+		var ids = $(this).next().attr("id");
+		if(ids == "home") {
+			toolbarActive('homeTool');
+		} else {
+			initPageJS(ids, '');
+		}
+	} else {
+		initPageJS('agv_dg', '');
 	}
 });
 //扫一扫
@@ -1061,8 +1102,8 @@ function get_no(dt, set_equip, set_no, values) {
 			var dt = $(data).find('DataTable'); //返回XML格式的DataTable
 			// console.log(dt.find("main_instruction").html(), dt.find("minor_instruction").html(), dt.find("value").html());
 			if(dt.find("equip_no").html() != "") {
-				if(values == "") onSetCommand11(dt, set_equipOld, dt.find("main_instruction").html(), dt.find("minor_instruction").html(), dt.find("value").html());
-				else onSetCommand11(dt, set_equipOld, dt.find("main_instruction").html(), dt.find("minor_instruction").html(), values);
+				if(values == "") onSetCommand11(dt, set_equipOld, dt.find("main_instruction").text(), dt.find("minor_instruction").text(), dt.find("value").text());
+				else onSetCommand11(dt, set_equipOld, dt.find("main_instruction").text(), dt.find("minor_instruction").text(), values);
 			} else {
 				alertMsgError.open();
 			}
@@ -1071,7 +1112,6 @@ function get_no(dt, set_equip, set_no, values) {
 }
 
 function onSetCommand11(dt, equip_no, main_instr, mino_instr, valueset) {
-	console.log(equip_no + "," + main_instr + "," + mino_instr + "," + valueset);
 	var ajaxVar = $.ajax({
 		type: "POST",
 		url: "/GWService.asmx/SetupsCommand",
@@ -1085,7 +1125,6 @@ function onSetCommand11(dt, equip_no, main_instr, mino_instr, valueset) {
 		},
 		success: function(data) {
 			alertMsgSuccess.open();
-			console.log("success");
 		}
 	});
 }

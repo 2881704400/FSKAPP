@@ -39,11 +39,11 @@ $(function() {
 	}
 });
 
-function changeContentBoxBg(){
-	
-	$(".voice-container .pannel-chat-info").each(function(i){
-		var len=$(".voice-container .pannel-chat-info").length;
-		if(!$(this).find(".chart-content").hasClass("stay-right")&&i<len-1){
+function changeContentBoxBg() {
+
+	$(".voice-container .pannel-chat-info").each(function(i) {
+		var len = $(".voice-container .pannel-chat-info").length;
+		if(!$(this).find(".chart-content").hasClass("stay-right") && i < len - 1) {
 			$(this).addClass("chart-content-old");
 		}
 	})
@@ -53,9 +53,9 @@ function onTouchStart(e) {
 	e.preventDefault();
 	var touch = e.touches[0];
 	startY = touch.pageY; //刚触摸时的坐标
-	
+
 	cancelVoiceFlag = cancelFlag = false;
-	
+
 	$(".voice-container").html('<div class="pannel-chat-info">' +
 		'	<div class="chart-content">' +
 		'		<span>请告诉我，您想要进行的操作</span>' +
@@ -104,7 +104,7 @@ function onTouchMove(e) {
 }
 
 function onTouchEnd(e) {
-	if(cancelVoiceFlag||cancelFlag) {
+	if(cancelVoiceFlag || cancelFlag) {
 		$(".voice-arrow-cancel").hide();
 		$(".voice-arrow-box").hide();
 		$(".voice-arrow-dialog").show();
@@ -209,36 +209,65 @@ function callbackVoiceXFMessage(dt) {
 }
 
 function callbackVoiceXFData(dt) {
+	var voiceString=dt;
 	if(cancelVoiceFlag) {
 		return;
 	}
-	var _url = service + "/VoiceControlString";
-	var _data = "audioData=" + dt + "&&userName=" + window.localStorage.userName;
-	ajaxService("post", _url, true, _data, _successf, _error);
+	var _url = "/api/Voice/voice_string";
+	var _data = {
+		data_string: dt
+	}
+	ajaxServiceSendVoice("post", _url, true, _data, _successf, _error);
+	/*$.when(AlarmCenterContext.post(_url, _data)).done(function(e) {
+		_successf(e);
+	}).fail(function(e) {
+		_error(qXHR, textStatus, errorThrown);
+	});*/
 
-	function _successf(data) {
-		var rets = $(data).children("string").text();
-		if(rets == "") {
-			$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>未识别！</span>");
-		} else {
-
-			rets = rets.replace("未识别语音,内容---", "");
-			rets = rets.replace("。", "");
-			$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>" + rets + "</span>");
-			setTimeout(function() {
-				$(".voice-container").append('<div class="pannel-chat-info">' +
-					'	<div class="chart-content">' +
-					'		<span>好的，开始执行：' + rets + '..</span>' +
-					'	</div>' +
-					'</div>');
-				$(".voice-container").append('<div class="pannel-chat-info">' +
-					'	<div class="chart-content">' +
-					'		<span>' + rets + '已执行</span>' +
-					'	</div>' +
-					'</div>');
-				$('.voice-container').scrollTop($('.voice-container')[0].scrollHeight);
-				changeContentBoxBg();
-			}, 500);
+	function _successf(dt) {
+		if(dt.HttpStatus == 200 && dt.HttpData.data) {
+			var result = dt.HttpData.data;
+			if(result == "") {
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>未识别！</span>");
+			} else {
+				result = result.replace("未识别语音,内容---", "");
+				result = result.replace("。", "");
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>" + result + "</span>");
+				setTimeout(function() {
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>好的，开始执行：' + result + '..</span>' +
+						'	</div>' +
+						'</div>');
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>' + result + '已执行</span>' +
+						'	</div>' +
+						'</div>');
+					$('.voice-container').scrollTop($('.voice-container')[0].scrollHeight);
+					changeContentBoxBg();
+				}, 500);
+			}
+		}else {
+			if(!voiceString){
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>您好像没有说话哦！</span>");
+			}else{
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>" + voiceString + "</span>");
+				setTimeout(function() {
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>好的，开始执行：' + voiceString + '..</span>' +
+						'	</div>' +
+						'</div>');
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>' + voiceString + '指令异常，执行失败！</span>' +
+						'	</div>' +
+						'</div>');
+					$('.voice-container').scrollTop($('.voice-container')[0].scrollHeight);
+					changeContentBoxBg();
+				}, 500);
+			}
 		}
 		isVoices = false;
 		document.getElementById("videoContentBtnId").addEventListener('touchstart', onTouchStart);
@@ -258,14 +287,13 @@ function callbackVoiceXFData(dt) {
 	}
 }
 
-function ajaxServiceSend(_type, _url, _asycn, _data, _beforeSend, _success, _error) {
+function ajaxServiceSendVoice(_type, _url, _asycn, _data, _success, _error) {
 	var ajaxs = $.ajax({
 		type: _type,
 		url: _url,
 		timeout: 5000,
 		async: _asycn,
 		data: _data,
-		beforeSend: _beforeSend,
 		success: _success,
 		error: _error,
 		complete: function(XMLHttpRequest, status) { //请求完成后最终执行参数
@@ -286,35 +314,64 @@ function ajaxServiceSend(_type, _url, _asycn, _data, _beforeSend, _success, _err
 
 //接收回调数据并上传至服务器
 function callbackVoiceBuffer(dt) {
+	var voiceString=dt;
 	if(!isVoices) {
 		return;
 	}
 	var _url = service + "/VoiceControlByte";
 	var _data = "audioData=" + dt + "&&userName=" + window.localStorage.userName;
-	ajaxService("post", _url, true, _data, _successf, _error);
+	ajaxServiceSendVoice("post", _url, true, _data, _successf, _error);
 
-	function _successf(data) {
-		var rets = $(data).children("string").text();
-		if(rets == "") {
-			$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>未识别！</span>");
-		} else {
-			rets = rets.replace("未识别语音,内容---", "");
-			rets = rets.replace("。", "");
-			$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>" + rets + "</span>");
-			setTimeout(function() {
-				$(".voice-container").append('<div class="pannel-chat-info">' +
-					'	<div class="chart-content">' +
-					'		<span>好的，开始执行：' + rets + '..</span>' +
-					'	</div>' +
-					'</div>');
-				$(".voice-container").append('<div class="pannel-chat-info">' +
-					'	<div class="chart-content">' +
-					'		<span>' + rets + '已执行</span>' +
-					'	</div>' +
-					'</div>');
-				$('.voice-container').scrollTop($('.voice-container')[0].scrollHeight);
-				changeContentBoxBg();
-			}, 500);
+	/*$.when(AlarmCenterContext.post(_url, _data)).done(function(n, l) {
+		_successf(n);
+	}).fail(function(e) {
+		_error(qXHR, textStatus, errorThrown);
+	});*/
+
+	function _successf(dt) {
+		if(dt.HttpStatus == 200 && dt.HttpData.data) {
+			var result = dt.HttpData.data;
+			if(result == "") {
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>未识别！</span>");
+			} else {
+				result = result.replace("未识别语音,内容---", "");
+				result = result.replace("。", "");
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>" + result + "</span>");
+				setTimeout(function() {
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>好的，开始执行：' + result + '..</span>' +
+						'	</div>' +
+						'</div>');
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>' + result + '已执行</span>' +
+						'	</div>' +
+						'</div>');
+					$('.voice-container').scrollTop($('.voice-container')[0].scrollHeight);
+					changeContentBoxBg();
+				}, 500);
+			}
+		}else {
+			if(!voiceString){
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>您好像没有说话哦！</span>");
+			}else{
+				$(".voice-container").children(".pannel-chat-info:last-child").find('.chart-content').html("<span>" + voiceString + "</span>");
+				setTimeout(function() {
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>好的，开始执行：' + voiceString + '..</span>' +
+						'	</div>' +
+						'</div>');
+					$(".voice-container").append('<div class="pannel-chat-info">' +
+						'	<div class="chart-content">' +
+						'		<span>' + voiceString + '指令异常，执行失败！</span>' +
+						'	</div>' +
+						'</div>');
+					$('.voice-container').scrollTop($('.voice-container')[0].scrollHeight);
+					changeContentBoxBg();
+				}, 500);
+			}
 		}
 		isVoices = false;
 		document.getElementById("videoContentBtnId").addEventListener('touchstart', onTouchStart);

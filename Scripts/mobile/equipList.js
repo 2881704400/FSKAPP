@@ -17,6 +17,12 @@
 			$(that).parent().css({
 				borderColor: 'rgba(51,51,51,0.10)'
 			});
+			$(that).parent().parent().find('.guide-control-stop i').css({
+				color: '#333333'
+			});
+			$(that).parent().parent().find('.guide-control-stop').css({
+				borderColor: 'rgba(51,51,51,0.10)'
+			});
 		}, 500);
 		get_no("", 5640, 9, "");
 	});
@@ -108,8 +114,13 @@
 
 	
 	//导轨控制台轮盘
-	$("#guideControlStepId1").unbind('touchstart').bind('touchstart', function() {
-		get_no("#guideControlStepId1", 5640, 1, "");
+	$("#guideControlStepId1").unbind('click').bind('click', function() {
+		$("#guideControlId .guide-control-stop i").each(function(){
+			$(this).css({
+				color: '#333333'
+			});
+		});
+		get_no("", 5640, 1, "");
 		$(this).css({
 			color: '#3E7CFB'
 		});
@@ -117,7 +128,7 @@
 			borderColor: '#3E7CFB'
 		});
 	});
-	$("#guideControlStepId1").unbind('touchend').bind('touchend', function() {
+	/*$("#guideControlStepId1").unbind('touchend').bind('touchend', function() {
 		get_no("#guideControlStepId1", 5640, 5, "");
 		$(this).css({
 			color: '#333333'
@@ -125,9 +136,14 @@
 		$(this).parent().css({
 			borderColor: 'rgba(51,51,51,0.10)'
 		});
-	});
-	$("#guideControlStepId2").unbind('touchstart').bind('touchstart', function() {
-		get_no("#guideControlStepId2", 5640, 3, "");
+	});*/
+	$("#guideControlStepId2").unbind('click').bind('click', function() {
+		$("#guideControlId .guide-control-stop i").each(function(){
+			$(this).css({
+				color: '#333333'
+			});
+		});
+		get_no("", 5640, 3, "");
 		$(this).css({
 			color: '#3E7CFB'
 		});
@@ -135,7 +151,7 @@
 			borderColor: '#3E7CFB'
 		});
 	});
-	$("#guideControlStepId2").unbind('touchend').bind('touchend', function() {
+	/*$("#guideControlStepId2").unbind('touchend').bind('touchend', function() {
 		get_no("#guideControlStepId2", 5640, 7, "");
 		$(this).css({
 			color: '#333333'
@@ -143,8 +159,13 @@
 		$(this).parent().css({
 			borderColor: 'rgba(51,51,51,0.10)'
 		});
-	});
-	$("#guideControlStepId3").unbind('touchstart').bind('touchstart', function() {
+	});*/
+	$("#guideControlStepId3").unbind('click').bind('click', function() {
+		$("#guideControlId .guide-control-stop i").each(function(){
+			$(this).css({
+				color: '#333333'
+			});
+		});
 		get_no("#guideControlStepId3", 5640, 4, "");
 		$(this).css({
 			color: '#3E7CFB'
@@ -153,7 +174,7 @@
 			borderColor: '#3E7CFB'
 		});
 	});
-	$("#guideControlStepId3").unbind('touchend').bind('touchend', function() {
+	/*$("#guideControlStepId3").unbind('touchend').bind('touchend', function() {
 		get_no("#guideControlStepId3", 5640, 8, "");
 		$(this).css({
 			color: '#333333'
@@ -161,9 +182,14 @@
 		$(this).parent().css({
 			borderColor: 'rgba(51,51,51,0.10)'
 		});
-	});
-	$("#guideControlStepId4").unbind('touchstart').bind('touchstart', function() {
-		get_no("#guideControlStepId4", 5640, 2, "");
+	});*/
+	$("#guideControlStepId4").unbind('click').bind('click', function() {
+		$("#guideControlId .guide-control-stop i").each(function(){
+			$(this).css({
+				color: '#333333'
+			});
+		});
+		get_no("", 5640, 2, "");
 		$(this).css({
 			color: '#3E7CFB'
 		});
@@ -171,7 +197,7 @@
 			borderColor: '#3E7CFB'
 		});
 	});
-	$("#guideControlStepId4").unbind('touchend').bind('touchend', function() {
+	/*$("#guideControlStepId4").unbind('touchend').bind('touchend', function() {
 		get_no("#guideControlStepId4", 5640, 6, "");
 		$(this).css({
 			color: '#333333'
@@ -179,7 +205,7 @@
 		$(this).parent().css({
 			borderColor: 'rgba(51,51,51,0.10)'
 		});
-	});
+	});*/
 	
 	//监控控制台轮盘
 	$("#monitorControlStepId1").unbind('touchstart').bind('touchstart', function() {

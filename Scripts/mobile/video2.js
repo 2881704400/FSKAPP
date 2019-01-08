@@ -183,7 +183,7 @@ function videoListClick_list(that) {
         var equip = jsonStringParent;
         var video = jsonStringChild;
         var json = '{"equip":' + equip + ',"video":' + video + '}';
-         console.log(json);
+        
         try {
             myJavaFun.VideoShow(json);
         }

@@ -117,17 +117,15 @@ html.with-statusbar .statusbar {
  	top: 0px;
  	height: 100%;
  }
- 
- html.with-statusbar.device-ios .popup,
- html.with-statusbar.ios:not(.device-ios):not(.device-android) .popup {
- 	top: 0px !important;
- 	height: 100% !important;
+
+ .md .dialog-text {
+ 	text-align: center;
+ 	font-weight: 600;
  }
  
- html.with-statusbar.device-android .popup,
- html.with-statusbar.md:not(.device-ios):not(.device-android) .popup {
- 	top: 0px !important;
- 	height: 100% !important;
+ .md .dialog-buttons-vertical .dialog-buttons .dialog-button {
+ 	text-align: center;
+ 	border-top: 1px solid rgba(0, 0, 0, .1);
  }
  
  @media only screen and (device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) {
@@ -456,7 +454,13 @@ html.with-statusbar .statusbar {
  	background-color: #fff;
  	box-shadow: 0 0 2px 0 rgba(34, 34, 34, 0.20);
  	border-radius: 6px;
+ 	position: relative;
+ 	z-index: 99;
  	/*background: url(/Image/fsk/homeBg.png) no-repeat center center/100% 100%;*/
+ }
+ 
+ .homeMenuList li {
+ 	position: relative;
  }
  
  .homeMenuList li a {
@@ -467,6 +471,44 @@ html.with-statusbar .statusbar {
  
  .homeMenuList li a img {
  	width: 50%;
+ }
+ 
+ .homeMenuList_Imgbg {
+ 	position: absolute;
+ 	left: 0;
+ 	top: 0;
+ 	width: 100%;
+ 	height: 100%;
+ 	padding: 15% 5% 10% 5%;
+ 	box-shadow: 0 0 2px 0 rgba(34, 34, 34, 0.20);
+ 	border-radius: 6px;
+ 	z-index: -1;
+ }
+ 
+ .homeMenuList_Imgbg_nei {
+ 	width: 100%;
+ 	height: 100%;
+ 	position: relative;
+ }
+ 
+ .homeMenuList_Imgbg .homeMenuList_Imgbg_nei img {
+ 	width: 100%;
+ 	height: 2px;
+ 	position: absolute;
+ 	left: 0%;
+ 	top: 31%;
+ }
+ 
+ .homeMenuList_Imgbg .homeMenuList_Imgbg_nei img:nth-child(2) {
+ 	top: 60%;
+ }
+ 
+ .homeMenuList_Imgbg .homeMenuList_Imgbg_nei img:nth-child(3) {
+ 	position: absolute;
+ 	left: -35%;
+ 	top: 46%;
+ 	width: 170%;
+ 	transform: rotate(90deg);
  }
  
  .homeMenuList li a p {
@@ -527,7 +569,8 @@ html.with-statusbar .statusbar {
  	position: relative;
  	padding: 0 5%;
  	background-color: #FFFFFF;
- 	background-image: linear-gradient(90deg, transparent 9px, #f1f2f3 10px), linear-gradient(transparent 9px, #f1f2f3 10px);
+ 	background-image: linear-gradient(90deg, transparent 9px, rgba(155, 155, 155, 0.10) 10px), linear-gradient(transparent 9px, rgba(155, 155, 155, 0.10) 10px);
+ 	/*background: url(/Image/Fsk_white/bg_wangge.png) repeat;*/
  	background-size: 10px 10px;
  	box-shadow: inset 0 0 30px 2px rgba(23, 137, 224, 0.05);
  }
@@ -549,11 +592,36 @@ html.with-statusbar .statusbar {
  	transform: rotate(90deg);
  }
  
+ .agvContent img.leftTopArrowImg {
+ 	left: 0;
+ 	top: 0;
+ }
+ 
+ .agvContent img.rightTopArrowImg {
+ 	right: 0;
+ 	top: 0;
+ 	transform: rotate(90deg);
+ }
+ 
+ .agvContent img.leftBottomArrowImg {
+ 	width: 30px;
+ 	left: 0;
+ 	bottom: 0;
+ 	transform: rotate(270deg);
+ }
+ 
+ .agvContent img.rightBottomArrowImg {
+ 	width: 30px;
+ 	right: 0%;
+ 	bottom: 0%;
+ 	transform: rotate(180deg);
+ }
+ 
  .agvCoordinate {
  	color: #697A80;
  	position: absolute;
  	left: 7%;
- 	bottom: 7%;
+ 	bottom: 3%;
  }
  
  .agvCoordinate label {
@@ -690,7 +758,7 @@ html.with-statusbar .statusbar {
  	position: relative;
  	padding: 0 5%;
  	background-color: #FFFFFF;
- 	background-image: linear-gradient(90deg, transparent 9px, #f1f2f3 10px), linear-gradient(transparent 9px, #f1f2f3 10px);
+ 	background-image: linear-gradient(90deg, transparent 9px, rgba(155, 155, 155, 0.10) 10px), linear-gradient(transparent 9px, rgba(155, 155, 155, 0.10) 10px);
  	background-size: 10px 10px;
  	box-shadow: inset 0 0 30px 2px rgba(23, 137, 224, 0.05);
  }
@@ -898,7 +966,7 @@ html.with-statusbar .statusbar {
  	position: relative;
  	padding: 0 5%;
  	background-color: #FFFFFF;
- 	background-image: linear-gradient(90deg, transparent 9px, #f1f2f3 10px), linear-gradient(transparent 9px, #f1f2f3 10px);
+ 	background-image: linear-gradient(90deg, transparent 9px, rgba(155, 155, 155, 0.10) 10px), linear-gradient(transparent 9px, rgba(155, 155, 155, 0.10) 10px);
  	background-size: 10px 10px;
  	box-shadow: inset 0 0 30px 2px rgba(23, 137, 224, 0.05);
  }
@@ -1053,15 +1121,15 @@ html.with-statusbar .statusbar {
  }
  
  .agvContent .publicContent {
- 	background: url(/Image/fsk_white/avgModul.png) no-repeat center center/auto 80%;
+ 	background: url(/Image/fsk_white/AGV.gif) no-repeat center center/auto 100%;
  }
  
  .foxbotContent .publicContent {
- 	background: url(/Image/fsk_white/foxbotModul.png) no-repeat 80% center/auto 100%;
+ 	background: url(/Image/fsk_white/FOXBOT.gif) no-repeat center center/auto 120%;
  }
  
  .feederContent .publicContent {
- 	background: url(/Image/fsk_white/feederModul.png) no-repeat center center/auto 100%;
+ 	background: url(/Image/fsk_white/Super-TG.gif) no-repeat center center/auto 130%;
  }
  /*语音*/
  
@@ -1162,7 +1230,6 @@ html.with-statusbar .statusbar {
  	/*border: 1px solid #EAEAEA;*/
  	padding: 5px 0;
  }
- 
  
  .welcome-Word-control-boxs {
  	width: 100%;
@@ -1682,7 +1749,7 @@ html.with-statusbar .statusbar {
  
  .welcome-Word-control-icon-mutual span {
  	width: 1.75rem;
- 	height: 100px;
+ 	height: 90px;
  	font-size: 0.875rem;
  	font-family: PingFang SC Medium;
  	color: #FFFFFF;
@@ -1693,6 +1760,7 @@ html.with-statusbar .statusbar {
  	text-align: justify;
  	position: absolute;
  	left: 50%;
+ 	bottom: 0%;
  	transform: translateX(-50%);
  	z-index: 999;
  }
@@ -2185,16 +2253,20 @@ html.with-statusbar .statusbar {
  /******table样式******/
  
  #conf_tree {
- 	background: #1B191C;
+ 	background: #FFFFFF;
+ }
+ 
+ #conf_tree li {
+ 	border-top: 1px solid #c8c7cc;
  }
  
  #conf_tree li a,
  #tabListRT>div {
- 	color: #f7f7f7;
+ 	color: #333333;
  }
  
  #tabListRT>div {
- 	background: #1B191C;
+ 	background: #FFFFFF;
  }
  
  .segmented .button,
@@ -2245,7 +2317,7 @@ html.with-statusbar .statusbar {
  	border-top: none;
  	text-align: center;
  	font-weight: normal;
- 	color: #fff;
+ 	color: #333333;
  }
  
  .tableAuto table tbody tr td {
@@ -2286,7 +2358,7 @@ html.with-statusbar .statusbar {
  }
  
  .tableAuto2 table thead tr {
- 	background: #1B191C;
+ 	background: #F2F3F5;
  }
  
  .tabBtn .button {
@@ -2590,6 +2662,14 @@ html.with-statusbar .statusbar {
  	border-radius: 3px;
  }
  /*语音*/
+ 
+ .popup.popup-voices {
+ 	top: 0px !important;
+ 	height: 100% !important;
+ 	width: 100%;
+ 	left: 0;
+ 	margin: 0;
+ }
  
  .popup-voices {
  	background: rgba(51, 51, 51, 0.70);

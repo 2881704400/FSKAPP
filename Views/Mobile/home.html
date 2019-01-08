@@ -24,7 +24,7 @@
 		<!--本页样式-->
 		<link rel="stylesheet" href="/Styles/Mobile/home.css">
 		<link rel="stylesheet" href="/Styles/Mobile/animate.min.css">
-		<link rel="stylesheet" type="text/css" href="//at.alicdn.com/t/font_784725_fasb054ljh8.css"/>
+		<link rel="stylesheet" type="text/css" href="/fonts/fskNewFonts/iconfont.css" />
 	</head>
 
 	<body>
@@ -46,7 +46,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="/RealTime/" class="item-link item-content panel-close displayNone">
+							<a href="/RealTime/" class="item-link item-content panel-close">
 								<div class="item-content">
 									<div class="item-media"><i class="iconfont icon-chaxun"></i></div>
 									<div class="item-inner">
@@ -105,7 +105,7 @@
 					<div class="page-content" id="homeContents">
 						<div class="mainContents">
 							<ul class="homeMenuList row no-gap">
-								<li class="col-50">
+								<li class="col-50" id="xunLuoModelId">
 									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/patrol.png" alt="">
 										<p>巡逻模式</p>
 									</a>
@@ -113,15 +113,15 @@
 										<p>巡逻模式</p>
 									</a>
 								</li>
-								<li class="col-50">
+								<li class="col-50" id="canguanModelId">
 									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/demonstration.png" alt="">
-										<p>演示模式</p>
+										<p>参观模式</p>
 									</a>
 									<a href="#" class="displayNone"><img src="/Image/Fsk_white/demonstration1.png" alt="">
-										<p>演示模式</p>
+										<p>参观模式</p>
 									</a>
 								</li>
-								<li class="col-50">
+								<li class="col-50" id="fenbuModelId">
 									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/istributed.png" alt="">
 										<p>分布式模式</p>
 									</a>
@@ -129,7 +129,7 @@
 										<p>分布式模式</p>
 									</a>
 								</li>
-								<li class="col-50">
+								<li class="col-50" id="gudaoModelId">
 									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/island.png" alt="">
 										<p>孤岛模式</p>
 									</a>
@@ -137,7 +137,7 @@
 										<p>孤岛模式</p>
 									</a>
 								</li>
-								<li class="col-50">
+								<li class="col-50" id="xunxuModelId">
 									<a href="#" class="firstHomeMenu"><img src="/Image/Fsk_white/sequence.png" alt="">
 										<p>顺序模式</p>
 									</a>
@@ -145,7 +145,15 @@
 										<p>顺序模式</p>
 									</a>
 								</li>
+								<div class="homeMenuList_Imgbg">
+									<div class="homeMenuList_Imgbg_nei">
+										<img src="/Image/Fsk_white/light_line.png" />
+										<img src="/Image/Fsk_white/light_line.png" />
+										<img src="/Image/Fsk_white/light_line.png" />
+									</div>
+								</div>
 							</ul>
+							
 						</div>
 
 					</div>
@@ -198,22 +206,7 @@
 							<div class="chart-content chart-content-old">
 								<span>请告诉我，您想要进行的操作</span>
 							</div>
-						</div><!--
-						<div class="pannel-chat-info">
-							<div class="chart-content stay-right">
-								云台 旋转 140度
-							</div>
 						</div>
-						<div class="pannel-chat-info">
-							<div class="chart-content chart-content-old">
-								好的，旋转云台中..
-							</div>
-						</div>
-						<div class="pannel-chat-info">
-							<div class="chart-content">
-								云台旋转完成
-							</div>
-						</div>-->
 					</div>
 					<div class="voice-arrow-cancel">
 						取消指令

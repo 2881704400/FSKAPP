@@ -81,7 +81,7 @@ function treeHTML(len, name, equip_no, thisDom) {
             alarmClass = 'CommunicationOK';
         }
         newRow += "<li class=\"items\"><a href=\"#\" onclick='onTreePar(this,\"" + name + "\")' class=\"item-link item-content\">";
-        newRow += "<div class=\"item-media\"><i class=\"iconfont icon-xiayiye rt_listIcon\"></i><img src=\"/Image/alarm/" + alarmClass + ".png\"></div>";
+        newRow += "<div class=\"item-media\"><img src=\"/Image/alarm/" + alarmClass + ".png\"></div>";
         newRow += "<div class=\"item-inner\"><div class=\"item-title\">" + name + "</div></div></a>";
         newRow += "<div class=\"\"><div class=\"list-block\"><ul></ul></div></div>";
         newRow += "</li>";
